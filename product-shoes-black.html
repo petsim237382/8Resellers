@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Black Sneakers - 8 Resellers</title>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, #111, #333);
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    header {
+      padding: 20px;
+      position: relative;
+      text-align: center;
+      background: #000;
+    }
+    header img.logo { max-width: 170px; height: auto; }
+    .menu-btn, .cart-icon {
+      position: absolute; top: 20px; background: #222; padding: 10px 14px;
+      border-radius: 10px; box-shadow: 0 3px 6px rgba(0,0,0,0.5); cursor: pointer;
+      text-decoration: none; color: #fff; transition: .3s;
+    }
+    .menu-btn { left: 20px; }
+    .cart-icon { right: 20px; }
+    .menu-btn:hover, .cart-icon:hover { background:#00ff99; color:#000; }
+    .menu {
+      display:none; position:absolute; top:60px; left:20px; background:#111;
+      border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,.6); text-align:left; z-index:1000;
+    }
+    .menu a { display:block; padding:12px 18px; color:#fff; text-decoration:none; }
+    .menu a:hover { background:#00ff99; color:#000; }
+    h1.title { color:#00ff99; margin:10px auto 0; font-size:2rem; }
+    .tagline { color:#bbb; margin:4px 0 10px; }
+    section { padding: 50px 20px; text-align:center; }
+    section h2 { color:#00ff99; margin-bottom:20px; }
+    .products {
+      display:flex; gap:26px; flex-wrap:wrap; justify-content:center; margin-top:20px;
+    }
+    .product-card {
+      width:260px; background:#1c1c1c; border-radius:16px; padding:16px;
+      box-shadow:0 10px 30px rgba(0,0,0,.55); transition:.3s transform, .3s box-shadow;
+      text-align:left; text-decoration:none; color:inherit;
+    }
+    .product-card:hover { transform: translateY(-6px); box-shadow:0 14px 40px rgba(0,0,0,.7); }
+    .product-card img { width:100%; border-radius:12px; }
+    .product-card h3 { margin:12px 0 6px; font-size:1.15rem; }
+    .price { color:#00ff99; font-weight:700; }
+    .view-link { color:#00ff99; text-decoration:none; font-weight:700; }
+    footer { background:#000; color:#888; padding:20px; text-align:center; margin-top:60px; }
+</style>
+  <script>
+    function toggleMenu() {
+      const m = document.getElementById('menu');
+      m.style.display = m.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+
+  <style>
+    .container { max-width: 1000px; margin: 40px auto; background:#1c1c1c; border-radius:18px;
+                 box-shadow: 0 10px 30px rgba(0,0,0,.7); padding: 24px; display:flex; gap:28px; flex-wrap:wrap; }
+    .container img.main { max-width: 420px; border-radius:14px; width:100%; }
+    .info { flex:1; min-width: 260px; }
+    .info h1 { color:#00ff99; margin:0 0 10px; }
+    .info .price { font-size:1.6rem; margin:8px 0 16px; }
+    .btn { padding:12px 18px; border:none; border-radius:10px; margin-right:10px; cursor:pointer; font-size:1rem; }
+    .add { background:#00ff99; color:#000; }
+    .add:hover { background:#00cc77; }
+    .go { background:#444; color:#fff; }
+    .go:hover { background:#666; }
+</style>
+</head>
+<body>
+
+  <header>
+    <a class="menu-btn" onclick="toggleMenu()">☰ Menu</a>
+    <div id="menu" class="menu">
+      <a href="index.html">Home</a>
+      <a href="clothes.html">Clothes</a>
+      <a href="shoes.html">Shoes</a>
+      <a href="accessories.html">Accessories</a>
+      <a href="checkout.html">🛒 Basket</a>
+    </div>
+    <a class="cart-icon" href="checkout.html">🛒</a>
+    <a href="index.html"><img class="logo" src="assets/logo.png" alt="8 Resellers"></a>
+    <h1 class="title">8 Resellers</h1>
+    <p class="tagline">Exclusive deals. Premium fashion. Trusted reselling.</p>
+  </header>
+
+<div class="container">
+  <img class="main" src="assets/shoes_black.png" alt="Black Sneakers">
+  <div class="info">
+    <h1>Black Sneakers</h1>
+    <div class="price">215 AED</div>
+    <p>All-black stealth look, cushioned comfort.</p>
+    <div>
+      <button class="btn add" onclick='(function(){
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push({"name":"Black Sneakers","price":215,"img":"assets/shoes_black.png"});
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert("✅ Added to basket!");
+      })()'>Add to Basket</button>
+      <button class="btn go" onclick="window.location.href='checkout.html'">Checkout</button>
+      <button class="btn go" onclick="window.location.href='shoes.html'">Back</button>
+    </div>
+  </div>
+</div>
+<footer>&copy; 2025 8 Resellers</footer>
+</body>
+</html>
